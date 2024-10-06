@@ -22,7 +22,7 @@ exports.create = (req, res) => {
 
 // Retrieve all messages from the database.
 exports.findAll = (req, res) => {
-  product.find()
+    Product.find()
     .then((data) => {
       res.send(data);
     })
@@ -36,7 +36,7 @@ exports.findAll = (req, res) => {
 
 // Find a single message with a messageId
 exports.findOne = (req, res) => {
-  App.findById(req.params.productId)
+    Product.findById(req.params.productId)
     .then((data) => {
       if (!data) {
         return res.status(404).send({
@@ -89,17 +89,17 @@ exports.update = (req, res) => {
     });
 };
 
-exports.delete = (req, res) => {product.findByIdAndRemove(req.params.productID)
+exports.delete = (req, res) => {Product.findByIdAndDelete(req.params.productID)
 
   .then((data) => {
     if (!data) {
       // Delete a message with the specified  in the request
       return res.status(404).send({
-        message: "Message not found with id " + req.params.productID
+        message: "PRoduct not found with id " + req.params.productID
 
         });
       }
-      res.send({ message: "Message deleted successfully!" });
+      res.send({ message: "Product deleted successfully!" });
     })
     .catch((err) => {
       if (err.kind === "ObjectId" || err.name === "NotFound") {
