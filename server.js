@@ -24,6 +24,7 @@ app.get('/', (req, res) => {
 let PORT = 8080
 require('./routes/routes.js')(app);
 require('./routes/routeUSer.js')(app);
+require('./routes/Productroute.js')(app);
 
 
 app.listen(PORT, () => {
